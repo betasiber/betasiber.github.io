@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <title>Beta Siber Official Website</title>
     <style>
         body {
@@ -22,7 +20,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            filter: drop-shadow(10px);
         }
 
         nav a {
@@ -32,6 +29,7 @@
             font-weight: 500;
             transition: color 0.3s ease, border-bottom 0.3s ease;
             border-bottom: 3px solid transparent;
+            cursor: pointer;
         }
 
         nav a.active,
@@ -42,7 +40,7 @@
 
         @media (max-width: 768px) {
             nav {
-                display: none; /* Tidak tampil di Android atau perangkat kecil */
+                display: none;
             }
         }
 
@@ -52,7 +50,7 @@
         }
 
         .home {
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -61,14 +59,14 @@
             color: white;
         }
 
+        .home.active {
+            display: flex;
+        }
+
         .home-img img {
             width: 32vw;
             border-radius: 50%;
             transition: 0.5s ease;
-        }
-
-        .home-img img:hover {
-            transform: scale(1.1);
         }
 
         .btn {
@@ -107,32 +105,24 @@
         <a href="#" class="logo">Beta Siber</a>
 
         <nav>
-            <a href="home" class="active">Home</a>
-            <a href="about">About</a>
-            <a href="history">History</a>
-            <a href="experience">Experience</a>
-            <a href="contact">Contact</a>
+            <a onclick="showSection('home')" class="active">Home</a>
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('history')">History</a>
+            <a onclick="showSection('experience')">Experience</a>
+            <a onclick="showSection('contact')">Contact</a>
         </nav>
     </header>
 
-    <!-- Halaman Home -->
-    <section class="home">
+    <section id="home" class="home active">
         <div class="home-img">
             <img src="main.jpeg" alt="Beta Siber">
         </div>
         <div class="home-content">
             <h1>BETA<span>SIBER</span></h1>
-            <h3 class="typing-text">Build a <span></span></h3>
             <p>Information engineering community in East Nusa Tenggara</p>
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-            <a href="#" class="btn">Hire Up</a>
         </div>
     </section>
 
-    <!-- Halaman About (sama dengan Home) -->
     <section id="about" class="home">
         <div class="home-img">
             <img src="main.jpeg" alt="About Beta Siber">
@@ -143,7 +133,6 @@
         </div>
     </section>
 
-    <!-- Halaman History (sama dengan Home) -->
     <section id="history" class="home">
         <div class="home-img">
             <img src="main.jpeg" alt="History of Beta Siber">
@@ -154,7 +143,6 @@
         </div>
     </section>
 
-    <!-- Halaman Experience (sama dengan Home) -->
     <section id="experience" class="home">
         <div class="home-img">
             <img src="main.jpeg" alt="Beta Siber Experience">
@@ -165,7 +153,6 @@
         </div>
     </section>
 
-    <!-- Halaman Contact (sama dengan Home) -->
     <section id="contact" class="home">
         <div class="home-img">
             <img src="main.jpeg" alt="Contact Beta Siber">
@@ -175,5 +162,19 @@
             <p>Feel free to reach out to us via social media or contact us directly for collaboration opportunities.</p>
         </div>
     </section>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+
+            document.querySelector(`nav a[onclick="showSection('${sectionId}')"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
