@@ -1,39 +1,71 @@
-section {
-    padding: 5rem 9% 5rem;
-    background-color: #161616;
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Navbar styles */
+header {
+    background-color: #111;
+    padding: 1rem;
 }
 
-.about, .history, .experience, .contact {
-    padding: 3rem 0;
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
 }
 
-.about h2, .history h2, .experience h2, .contact h2 {
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #b8d6ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logo {
+    width: 150px;
+    border-radius: 50%;
+}
+
+h1 {
     font-size: 3rem;
-    color: #ADD8E6;
-    margin-bottom: 1rem;
 }
 
-.about p, .history p, .experience p, .contact p {
-    font-size: 1.6rem;
-    color: white;
-    line-height: 1.5;
+.highlight {
+    color: #00d8ff;
 }
 
-@media (max-width: 768px) {
-    section {
-        padding: 3rem 2rem;
-    }
+p {
+    font-size: 1.2rem;
+}
 
-    .about h2, .history h2, .experience h2, .contact h2 {
-        font-size: 2.5rem;
-    }
+.hire-btn {
+    padding: 10px 20px;
+    background-color: #00d8ff;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    border-radius: 5px;
+}
 
-    .about p, .history p, .experience p, .contact p {
-        font-size: 1.4rem;
-    }
+.hire-btn:hover {
+    background-color: #b8d6ff;
 }
